@@ -1,2 +1,2 @@
-# Turistična agencija - Projet pri predmetu NSA
+# Turistična agencija - Projekt pri predmetu NSA
 
