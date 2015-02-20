@@ -1,4 +1,50 @@
 <?php
+function 
+
+function dodajLastnik($podatki) {
+	$ime = $podatki['ime'];
+	$priimek = $podatki['priimek'];
+	$kraj = $podatki['kraj'];
+	$ulica = $podatki['ulica'];
+	$posta = $podatki['posta'];
+	$telefon = $podatki['podatki'];
+	$url = $podatki['url'];
+	$drzavaID = $podatki['drzavaID'];
+
+	if(mysql_query("INSERT INTO lastnik (ime, priimek, kraj, ulica, posta, telefon, url, drzavaID) 
+		VALUES ('$ime', '$priimek', '$kraj', '$ulica', '$posta', '$telefon', '$url', '$drzavaID')"))
+		return true;
+	else
+		return false;
+}
+
+function stetjeHotelov(){
+	return (mysql_result(mysql_query("SELECT COUNT(hotelID) FROM hotel"), 0));
+}
+
+function dodajHotel($podatki) {
+	$naziv = $podatki['naziv'];
+	$kraj = $podatki['kraj'];
+	$ulica = $podatki['ulica'];
+	$posta = $podatki['posta'];
+	$drzava = $podatki['drzava'];
+	$zvezdice = $podatki['zvezdice'];
+	$email = $podatki['email'];
+	$telefon = $podatki['telefon'];
+	$url = $podatki['url'];
+	$placilo = $podatki['placilo'];
+	$valuta = $podatki['valuta'];
+	$lastnikID = $podatki['lastnik'];
+
+	if(mysql_query("INSERT INTO hotel (naziv, kraj, ulica, posta, drzava, zvezdice, email, telefon, url, placilo, valuta, lastnikID) 
+		VALUES ('$naziv', '$kraj', '$ulica', '$posta', '$drzava', '$zvezdice', '$email', '$telefon', '$url', '$placilo', '$valuta', '$lastnikID')")) 
+		
+		return true;
+
+	else 
+		return false;	
+}
+
 function stetjeUporabnikov() {
 	return (mysql_result(mysql_query("SELECT COUNT(uporabnikID FROM uporabnik WHERE acitve = 1"), 0));
 }
