@@ -1,5 +1,7 @@
 <?php
-
+function stetjeUporabnikov() {
+	return (mysql_result(mysql_query("SELECT COUNT(uporabnikID FROM uporabnik WHERE acitve = 1"), 0));
+}
 
 function zasciteno() {
 	if(prijavljen() === false) {

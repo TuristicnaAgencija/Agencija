@@ -204,7 +204,7 @@ INSERT INTO `countries` (`countryCode`, `countryName`) VALUES
 ('SE', 'Sweden'),
 ('SG', 'Singapore'),
 ('SH', 'Saint Helena'),
-('SI', 'Slovenia'),
+('SI', 'Slovenija'),
 ('SJ', 'Svalbard and Jan Mayen'),
 ('SK', 'Slovakia'),
 ('SL', 'Sierra Leone'),
