@@ -1,5 +1,7 @@
 <?php
-function 
+function blaz() {
+	
+}
 
 function dodajLastnik($podatki) {
 	$ime = $podatki['ime'];
