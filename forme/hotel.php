@@ -10,21 +10,21 @@
 			<label>Pošta</label>
 			<input type="number" name="posta" class="form-field"><br/>
 			<label>Država</label>
-			<select name="drzava">
+			<select name="drzava" class="form-field">
 				<?php
 					$drzave = array();
 					$drzave = drzave();
 					foreach ($drzave as $k => $drzava) {
-						echo '<option value="'.$drzava["drzavaID"].'">'.$drzava["naziv"].'</option>';
+						echo '<option value="'.$drzava["drzavaID"].'" class="form-field">'.$drzava["naziv"].'</option>';
 					}
 				?>
 			</select><br/>
 			<label>Število zvezdic</label>
-			<input type="radio" name="zvezdice" value="1">1 
-			<input type="radio" name="zvezdice" value="2">2 
-			<input type="radio" name="zvezdice" value="3">3 
-			<input type="radio" name="zvezdice" value="4">4 
-			<input type="radio" name="zvezdice" value="5">5 <br/>
+			<input type="radio" name="zvezdice" value="1" class="form-field">1 
+			<input type="radio" name="zvezdice" value="2" class="form-field">2 
+			<input type="radio" name="zvezdice" value="3" class="form-field">3 
+			<input type="radio" name="zvezdice" value="4" class="form-field">4 
+			<input type="radio" name="zvezdice" value="5" class="form-field">5 <br/>
 			<label>E-mail</label>
 			<input type="email" name="email" class="form-field"><br/>
 			<label>Telefonska številka</label>
