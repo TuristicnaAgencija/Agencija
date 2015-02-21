@@ -87,7 +87,7 @@
 		$podatki['valuta'] = $_POST['valuta'];
 		$podatki['lastnik'] = $_POST['lastnik'];
 		if(dodajHotel($podatki) == true) {
-			echo 'Vaš hotel je uspešno dodatn.';
+			echo 'Vaš hotel je uspešno dodan.';
 		}
 		else {
 			echo 'Oprostite, pojavila se je napaka.';

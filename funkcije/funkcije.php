@@ -9,7 +9,7 @@ function dodajLastnik($podatki) {
 	$kraj = $podatki['kraj'];
 	$ulica = $podatki['ulica'];
 	$posta = $podatki['posta'];
-	$telefon = $podatki['podatki'];
+	$telefon = $podatki['telefon'];
 	$url = $podatki['url'];
 	$drzavaID = $podatki['drzavaID'];
 
