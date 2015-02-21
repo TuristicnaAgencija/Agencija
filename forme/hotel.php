@@ -60,5 +60,42 @@
 			<label>Lastnik</label>
 			<input type="number" name="lastnik" class="form-field"><br/>
 			</div>
+			<div class="form-group">
+			<input type="submit" value="Dodaj hotel" class="form-field">
+			</div>
 	</form>
 </div>
+
+<?php
+	$napake = array();
+	if(empty($_POST['naziv'] && $_POST['kraj'] && $_POST['ulica'] && $_POST['posta'] && $_POST['drzava'] && $_POST['zvezdice'] && 
+		$_POST['email'] && $_POST['telefon'] && $_POST['url'] && $_POST['placilo'] && $_POST['valuta'] && $_POST['lastnik'])) {
+		$napake[] = 'Izpolnite vsa polja.';
+	}
+	if(empty($napake)) {
+		$podatki = array();
+		$podatki['naziv'] = $_POST['naziv'];
+		$podatki['kraj'] = $_POST['kraj'];
+		$podatki['ulica'] = $_POST['ulica'];
+		$podatki['posta'] = $_POST['posta'];
+		$podatki['drzava'] = $_POST['drzava'];
+		$podatki['zvezdice'] = $_POST['zvezdice'];
+		$podatki['email'] = $_POST['email'];
+		$podatki['telefon'] = $_POST['telefon'];
+		$podatki['url'] = $_POST['url'];
+		$podatki['placilo'] = $_POST['placilo'];
+		$podatki['valuta'] = $_POST['valuta'];
+		$podatki['lastnik'] = $_POST['lastnik'];
+		if(dodajHotel($podatki) == true) {
+			echo 'Vaš hotel je uspešno dodatn.';
+		}
+		else {
+			echo 'Oprostite, pojavila se je napaka.';
+		}
+	}
+	else {
+		foreach ($napake as $k => $napaka) {
+			echo $napaka;
+		}
+	}
+?>
