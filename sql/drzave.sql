@@ -1,10 +1,10 @@
 CREATE TABLE IF NOT EXISTS drzava (
 	drzavaID int(5) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	koda char(2) NOT NULL DEFAULT '',
-	naziv varchar(45) NOT NULL DEFAULT '',
+	naziv varchar(45) NOT NULL DEFAULT ''
 ) ENGINE=innoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
 
-INSERT INTO `countries` (`countryCode`, `countryName`) VALUES
+INSERT INTO `drzava` (`koda`, `naziv`) VALUES
 ('AD', 'Andorra'),
 ('AE', 'United Arab Emirates'),
 ('AF', 'Afghanistan'),

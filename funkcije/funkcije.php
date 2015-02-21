@@ -91,3 +91,12 @@ function vpis($email, $geslo) {
 function uporabnikID_Email($email){
 	return (mysql_result(mysql_query("SELECT uporabnikID FROM uporabnik WHERE email = '$email'"), 0));
 }
+
+function drzave() {
+	$drzave = array();
+	$query = mysql_query("SELECT drzavaID, naziv FROM drzava");
+	while($temp = mysql_fetch_assoc($query)) {
+		$drzave[] = $temp;
+	}
+	return $drzave;
+}
