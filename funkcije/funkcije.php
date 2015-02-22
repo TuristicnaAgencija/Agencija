@@ -67,11 +67,16 @@ function registracija($podatki) {
 	$priimek = $podatki['priimek'];
 	$email = $podatki['email'];
 	$geslo = $podatki['geslo'];
+	$ulica = $podatki['ulica'];
+	$kraj = $podatki['kraj'];
+	$posta = $podatki['posta'];
+	$postnaStevilka = $podatki['postnaStevilka'];
+	$telefon = $podatki['telefon'];
+	$spol = $podatki['spol'];
 	$emailCode = $podatki['emailCode'];
 
-	echo 'mysql_query("INSERT INTO uporabnik (ime, priimek, email, geslo, emailCode) VALUES ('.$ime.', '.$priimek.', '.$email.', '.$geslo.', '.$emailCode.')")';
-
-	if(mysql_query("INSERT INTO uporabnik (ime, priimek, email, geslo, emailCode) VALUES ('$ime', '$priimek', '$email', '$geslo', '$emailCode')")) {
+	if(mysql_query("INSERT INTO uporabnik (ime, priimek, email, geslo, emailCode, kraj, ulica, posta, postnaStevilka, telefon, spol) 
+		VALUES ('$ime', '$priimek', '$email', '$geslo', '$emailCode', '$kraj', '$ulica', '$posta', '$postnaStevilka', '$telefon', '$spol')")) {
 		return true;
 	}
 	else {
