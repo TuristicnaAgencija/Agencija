@@ -35,7 +35,7 @@
 					$drzave = array();
 					$drzave = drzave();
 					foreach ($drzave as $k => $drzava) {
-						echo '<option value="'.$drzava["drzavaID"].'" class="form-field">'.$drzava["naziv"].'</option>';
+						echo '<option value="'.$drzava["drzavaID"].'">'.$drzava["naziv"].'</option>';
 					}
 				?>
 			</select>
