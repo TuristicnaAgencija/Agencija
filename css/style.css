@@ -1,0 +1,162 @@
+/*CSS STYLE*/
+
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+hr {
+	color: #e7e7e7;
+	margin: 20px 0;
+}
+
+.glava {
+	height: 120px;
+	width: auto;
+}
+
+.glava span {
+	display: inline-block;
+	position: absolute;
+	top: 10px;
+	line-height: 1.4em;
+}
+
+.glava img {
+	height: 80%;
+	width: 20%;
+	margin: 10px;
+	border: solid black;
+}
+
+.navZgoraj {
+	display: block;
+	border: 1px solid #e7e7e7;
+	background-color: #f8f8f8;
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.navZgoraj li {
+	position: relative;
+    display: inline-block;
+}
+
+.navZgoraj li a {
+	position: relative;
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+}
+
+.navZgoraj li a:hover {
+	background-color: #eeeeee;
+	color: #666;
+}
+
+.glava a {
+	display: inline-block;
+	padding: 10px;
+	color: #333;
+	text-decoration: none;
+	font-weight: bold;
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+.glava a:hover {	
+	color: #000;
+}
+
+.glava .desno {
+	display: inline;
+	right: 20px;
+	top: 20px;
+	position: absolute;
+}
+
+.index {
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+	width: 1170px;
+}
+
+.prijava {
+	margin-left: 50px;
+}
+
+.prijavaDodatno {
+	margin-left: 50px;
+	line-height: 1.4em;
+}
+
+.prijavaDodatno .neki {
+	font-weight: bold;
+	font-size: 1em;
+}
+
+.prijavaDodatno a {
+	font-size: 0.8em;
+}
+
+.registracija {
+	margin-left: 50px;
+}
+
+.registracija p {
+	font-size: 0.7em;
+}
+
+.form-group {
+	margin-bottom: 15px;
+}
+
+.form-field {
+	display: block;
+	width: 250px;
+	height: 20px;
+	padding: 5px;
+	font-size: 16px;
+	line-height: 1.42857143;
+	color: #555555;
+	background-color: #ffffff;
+	background-image: none;
+	border: 1px solid #cccccc;
+	border-radius: 4px;
+}
+
+input[type="radio"] {
+	margin: 4px 5px 5px;
+	line-height: normal;
+}
+
+input[type="submit"] {
+	display: inline-block;
+	padding: 10px;
+	border: 1px solid #e7e7e7;
+	background-color: #fff;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+input[type="submit"]:hover {
+	background-color: #eee;
+}

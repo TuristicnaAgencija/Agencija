@@ -11,4 +11,30 @@ include 'funkcije/init.php';
 	<meta charset="utf-8">
 </head>
 <body>
+<div class="glava">
+	<img src="">
+	<span>
+		<b>Pomoč in informacije:</b><br>
+		01 2004 104<br>
+		<b>Pišite nam:</b><br>
+		info@agencija.si
+	</span>
+	<?php 
+	if(prijavljen() == false) {
+		?>
+	<nav class="desno">
+		<a href="prijava.php">Prijava</a>
+		<a href="registracija.php">Registracija</a>
+	</nav>
+	<?php 
+	} else {
+		?>
+	<nav class="desno">
+		<a href="odjava.php">Odjava</a>
+	</nav>
+		<?php
+	}
+	?>
+</div>
+<?php include 'includes/navigacija.php' ?>
 <div class="index">

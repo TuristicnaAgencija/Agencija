@@ -1,35 +1,86 @@
-<?php include 'includes/glava.php'; 
+<?php include 'includes/glava.php';
+error_reporting(0); 
 if(!isset($_GET['success'])) {?>
 <div class="registracija">
+<h2>Regstracija</h2>
+<p> Vsi podatki, ki jih vnesete na tej strani so varovani pred zlorabo! Podatke, ki nam jih boste posredovali ob prijavi, bomo uporabljali zgolj v namene, za katere so bili dani. Vaših podatkov ne bomo posredovali tretjim osebam.</p>
+<h5>Vsa polja so obvezna!</h5>
+</div>
+<hr>
+<div class="registracija">
+<h4>E-Naslov in geslo</h4>
+<p> Za uporabniško ime vnesite svoj email naslov in določite geslo, s katerim boste dostopali do svojih uporabniških strani.
+<br>Geslo lahko vedno spremenite v osebnih nastavitvah.</p>
 	<form method="POST">
-		<div class="form-div">
-			<label>Ime</label>
-			<input type="text" name="ime" class="form-field" value="<?php echo $_POST['ime']; ?>" required>
-		</div>
-		<div class="form-div">
-			<label>Priimek</label>
-			<input type="text" name="priimek" class="form-field" value="<?php echo $_POST['priimek']; ?>" required>
-		</div>
-		<div class="form-div">
+		<div class="form-group">
 			<label>E-Naslov</label>
 			<input type="email" name="email" class="form-field" value="<?php echo $_POST['email']; ?>" required>
 		</div>
-		<div class="form-div">
+		<div class="form-group">
 			<label>Geslo</label>
 			<input type="password" name="geslo" class="form-field" required>
 		</div>
-		<div class="form-div">
+		<div class="form-group">
 			<label>Ponovi geslo</label>
 			<input type="password" name="ponoviGeslo" class="form-field" required>
 		</div>
-		<div class="form-div">
-			<label>Dokaži da nisi robot</label><span>2 + 5</span>
-			<input type="text" name="validacija" min="5" required>
+</div>
+<hr>
+<div class="registracija">
+<h4>Osebni podatki</h4>
+		<div class="form-group">
+			<label>Ime</label>
+			<input type="text" name="ime" class="form-field" value="<?php echo $_POST['ime']; ?>" required>
 		</div>
-		<div class="form-div">
+		<div class="form-group">
+			<label>Priimek</label>
+			<input type="text" name="priimek" class="form-field" value="<?php echo $_POST['priimek']; ?>" required>
+		</div>
+		<div class="form-group">
+			<label>Ulica</label>
+			<input type="text" name="ulica" class="form-field">
+		</div>
+		<div class="form-group">
+			<label>Kraj</label>
+			<input type="text" name="kraj" class="form-field">
+		</div>
+		<div class="form-group">
+			<label>Pošta</label>
+			<input type="text" name="posta" class="form-field">
+		</div>
+		<div class="form-group">
+			<label>Poštna številka</label>
+			<input type="text" name="postnaStevilka" class="form-field" style="width:100px;">
+		</div>
+		<div class="form-group">
+			<label>Telefon</label>
+			<input type="text" name="telefon" class="form-field">
+		</div>
+		<div class="form-group">
+			<label>Spol</label>
+			<br><br>
+			<label>
+			<input type="radio" name="spol" value="moski">Moški</label><br>
+			<label>
+			<input type="radio" name="spol" value="zenski">Ženski</label><br>
+			<label>
+			<input type="radio" name="spol" value="0">Ne želim razkriti</label><br>
+		</div>
+		<div class="form-group">
+			<label>Dokaži da nisi robot</label><br><span>2 + 5 =</span>
+			<input type="text" name="validacija" class="form-field" style="width:50px;" required>
+		</div>
+		<div class="form-group">
 			<input type="submit" name="submit" value="Registracija" class="form-btn">
 		</div>
 	</form>
+</div>
+<hr>
+<div class="prijavaDodatno">
+<span class="neki">Že imate račun?</span><br>
+<a href="prijava.php">Prijavite se tukaj</a><br>
+<span class="neki">Ste pozabili geslo?</span><br>
+<a href="">Zahtevajte novo geslo</a>
 </div>
 <?php
 $errors = array();
@@ -59,7 +110,7 @@ if(isset($_POST['submit'])) {
 
     if (!preg_match("#[a-zA-Z]+#", $_POST['geslo'])) {
         $errors[] = "Geslo mora vsebovati vsaj eno črko";
-    } 
+    }
 
     if($_POST['validacija'] != 7) {
     	$errors[] = 'Validacija ni uspela';
@@ -77,10 +128,15 @@ if(isset($_POST['submit'])) {
 		$email = $_POST['email'];
 		$geslo = sha1($_POST['geslo']);
 		$ponoviGeslo = sha1($_POST['ponoviGeslo']);
+		$ulica = $_POST['ulica'];
+		$kraj = $_POST['kraj'];
+		$posta = $_POST['posta'];
+		$postnaStevilka = $_POST['postnaStevilka'];
+		$telefon = $_POST['telefon'];
+		$spol = $_POST['spol'];
 		$emailCode = md5($_POST['email'] + microtime());
 		$validacija = $_POST['validacija'];
-		$errors[] = array('ime'=>$ime, 'priimek'=>$priimek, 'email'=>$email, 'geslo'=>$geslo, 'ponoviGeslo'=>$ponoviGeslo, 'emailCode'=>$emailCode, 'validacija'=>$validacija);
-		$podatki = array('ime'=>$ime, 'priimek'=>$priimek, 'email'=>$email, 'geslo'=>$geslo, 'ponoviGeslo'=>$ponoviGeslo, 'emailCode'=>$emailCode);
+		$podatki = array('ime'=>$ime, 'priimek'=>$priimek, 'email'=>$email, 'geslo'=>$geslo, 'ponoviGeslo'=>$ponoviGeslo, 'kraj'=>$kraj, 'ulica'=>$ulica, 'posta'=>$posta, 'postnaStevilka'=>$postnaStevilka, 'telefon'=>$telefon, 'spol'=>$spol, 'emailCode'=>$emailCode);
 		if(registracija($podatki) == true) {
 			header('Location: ?success');
 		}

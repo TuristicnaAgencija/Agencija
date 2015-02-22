@@ -1,18 +1,26 @@
 <?php include 'includes/glava.php'; ?>
 <div class="prijava">
+<h2>Prijava</h2>
 	<form method="post">
-		<div class="form-field">
+		<div class="form-group">
 			<label>Email</label>
 			<input type="email" name="email" class="form-field" required>
 		</div>
-		<div class="form-field">
+		<div class="form-group">
 			<label>Geslo</label>
 			<input type="password" name="geslo" class="form-field" required>
 		</div>
-		<div class="form-field">
+		<div class="form-group">
 			<input type="submit" name="submit" value="Prijava">
 		</div>
 	</form>
+</div>
+<hr>
+<div class="prijavaDodatno">
+<span class="neki">Nimate računa?</span><br>
+<a href="registracija.php">Ustvarite račun tukaj</a><br>
+<span class="neki">Ste pozabili geslo?</span><br>
+<a href="">Zahtevajte novo geslo</a>
 </div>
 <?php
 $errors = array();
