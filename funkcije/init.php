@@ -2,6 +2,6 @@
 session_start();
 
 if(prijavljen()){
-$uporabnikID = $_SESSION['uporabnikID'];
+$session_uporabnikID = $_SESSION['uporabnikID'];
 }
 ?>

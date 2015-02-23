@@ -1,8 +1,12 @@
 <div class="dodajHotel">
-	<form method="post">
+	<form method="post" enctype="multipart/form-data">
 		<div class="form-group">
 			<label>Naziv</label>
 			<input type="text" name="naziv" class="form-field">
+		</div>
+		<div class="form-group">
+			<label>Slika</label>
+			<input type="file" name="slika" class="form-field">
 		</div>
 		<div class="form-group">
 			<label>Kraj</label>
@@ -75,6 +79,7 @@
 	if(empty($napake)) {
 		$podatki = array();
 		$podatki['naziv'] = $_POST['naziv'];
+		$podatki['slika'] = $_POST['slika'];
 		$podatki['kraj'] = $_POST['kraj'];
 		$podatki['ulica'] = $_POST['ulica'];
 		$podatki['posta'] = $_POST['posta'];

@@ -1,6 +1,30 @@
 <?php
-function blaz() {
-	
+function podatkiHotel($hotelID){
+	$data = mysql_fetch_assoc(mysql_query("SELECT * FROM hotel WHERE hotelID = '$hotelID'"));
+	return $data;
+}
+
+function posodobitev($podatki) {
+	$ime = $podatki['ime'];
+	$priimek = $podatki['priimek'];
+	$email = $podatki['email'];
+	$ulica = $podatki['ulica'];
+	$kraj = $podatki['kraj'];
+	$posta = $podatki['posta'];
+	$postnaStevilka = $podatki['postnaStevilka'];
+	$telefon = $podatki['telefon'];
+
+	if(mysql_query("UPDATE uporabnik SET ime = '$ime', priimek = '$priimek', email = '$email', ulica = '$ulica', kraj = '$kraj', posta = '$posta', postnaStevilka = '$postnaStevilka', telefon = '$telefon'")) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+function podatkiUporabnik($uporabnikID) {
+	$data = mysql_fetch_assoc(mysql_query("SELECT ime, priimek, email, kraj, ulica, posta, postnaStevilka, telefon, spol FROM uporabnik WHERE uporabnikID = '$uporabnikID'"));
+	return $data;
 }
 
 function dodajLastnik($podatki) {

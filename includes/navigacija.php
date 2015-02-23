@@ -2,7 +2,7 @@
 <nav>
 	<ul>
 		<li>
-			<a href="">Domov</a>
+			<a href="index.php">Domov</a>
 		</li>
 		<li>
 			<a href="">Link 1</a>

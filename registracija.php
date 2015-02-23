@@ -105,11 +105,11 @@ if(isset($_POST['submit'])) {
 	}
 
 	if (!preg_match("#[0-9]+#", $_POST['geslo'])) {
-        $errors[] = "Geslo mora vsebovati vsaj eno številko";
+        $errors[] = 'Geslo mora vsebovati vsaj eno številko';
     }
 
     if (!preg_match("#[a-zA-Z]+#", $_POST['geslo'])) {
-        $errors[] = "Geslo mora vsebovati vsaj eno črko";
+        $errors[] = 'Geslo mora vsebovati vsaj eno črko';
     }
 
     if($_POST['validacija'] != 7) {

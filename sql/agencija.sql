@@ -23,43 +23,35 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dodatno`
---
-
-CREATE TABLE IF NOT EXISTS `dodatno` (
-`dodatnoID` int(11) NOT NULL,
-  `wifi` int(2) NOT NULL,
-  `zajtrk` int(2) NOT NULL,
-  `kosilo` int(2) NOT NULL,
-  `vecerja` int(2) NOT NULL,
-  `promet` int(1) NOT NULL,
-  `bar` int(1) NOT NULL,
-  `terasa` int(1) NOT NULL,
-  `igralnica` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `hotel`
 --
 
 CREATE TABLE IF NOT EXISTS `hotel` (
-`hotelID` int(11) NOT NULL,
-  `naziv` varchar(255) COLLATE utf8_bin NOT NULL,
-  `kraj` varchar(255) COLLATE utf8_bin NOT NULL,
-  `ulica` varchar(255) COLLATE utf8_bin NOT NULL,
-  `posta` int(11) NOT NULL,
+  `hotelID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `naziv` varchar(255) NOT NULL,
+  `slika` varchar(255) NOT NULL,
+  `kraj` varchar(255) NOT NULL,
+  `ulica` varchar(255) NOT NULL,
+  `posta` varchar(255) NOT NULL,
+  `postnaStevila` int(11) NOT NULL,
   `drzava` int(11) NOT NULL,
   `zvezdice` int(1) NOT NULL,
-  `email` varchar(255) COLLATE utf8_bin NOT NULL,
-  `telefon` varchar(20) COLLATE utf8_bin NOT NULL,
-  `url` varchar(255) COLLATE utf8_bin NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `telefon` varchar(20) NOT NULL,
+  `url` varchar(255) NOT NULL,
   `lastnikID` int(11) NOT NULL,
-  `placilo` varchar(255) COLLATE utf8_bin NOT NULL,
-  `valuta` varchar(255) COLLATE utf8_bin NOT NULL,
-  `dodatnoID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+  `placilo` varchar(255) NOT NULL,
+  `steviloNadstropji` int(5) NOT NULL,
+  `valuta` varchar(255) NOT NULL,
+  `wifi` varchar(255) NOT NULL,
+  `zajtrk` varchar(255) NOT NULL,
+  `kosilo` varchar(255) NOT NULL,
+  `vecerja` varchar(255) NOT NULL,
+  `promet` varchar(1024) NOT NULL,
+  `bar` varchar(1024) NOT NULL,
+  `terasa` varchar(1024) NOT NULL,
+  `igralnica` varchar(1024) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 -- --------------------------------------------------------
 

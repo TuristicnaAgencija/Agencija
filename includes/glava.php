@@ -8,11 +8,12 @@ include 'funkcije/init.php';
 <head>
 	<title>Turistična agencija</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
 	<meta charset="utf-8">
 </head>
 <body>
 <div class="glava">
-	<img src="">
+	<img src="http://placehold.it/270x100">
 	<span>
 		<b>Pomoč in informacije:</b><br>
 		01 2004 104<br>
@@ -30,6 +31,7 @@ include 'funkcije/init.php';
 	} else {
 		?>
 	<nav class="desno">
+		<a href="profil.php?uporabnikID=<?php echo $session_uporabnikID; ?>">Profil</a>
 		<a href="odjava.php">Odjava</a>
 	</nav>
 		<?php
