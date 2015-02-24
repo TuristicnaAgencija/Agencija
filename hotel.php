@@ -15,14 +15,25 @@ else {
 	die();
 }
 ?>
+	
 <div class="hotel">
 	<div class="galerija">
-		<h1 style="left:50%; transform:translate(-50%,0); font-size:2em;color:#fff;position:absolute;"><?php echo $data['naziv'].' ';?>
+		<h1 style="left:50%; transform:translate(-50%,0); font-size:2em;color:#fff;position:absolute; z-index: 999;"><?php echo $data['naziv'].' ';?>
 		<?php foreach(range(1, $data['zvezdice']) as $i):?>
 		<i class="fa fa-star" style="font-size:0.5em;vertical-align:top;"></i>
 	<?php endforeach; ?>
 		</h1>
-		<img src="http://placekitten.com/g/1170/400">
+			<ul>
+				<li style="background-image: url('https://placekitten.com/g/1170/400');">
+					
+				</li>
+				<li style="background-image: url('https://placekitten.com/g/1170/400');">
+					
+				</li>
+				<li style="background-image: url('https://placekitten.com/g/1170/400')">
+					
+				</li>
+			</ul>
 	</div>
 	<div class="slike">
 		<img src="https://placekitten.com/g/150/150">
@@ -67,5 +78,15 @@ else {
 		<a href="" class="kappa">Ali pa se posvetujte z enem izmed agentov</a>
 	</div>
 </div>
-
+<script src="js/slider.plugin.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.galerija').unslider({
+			speed: 500,
+			delay: 5000,
+			dots: true,
+			fluid: false
+		});
+});
+</script>
 <?php include 'includes/noga.php'; ?>

@@ -10,6 +10,8 @@ include 'funkcije/init.php';
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
 	<meta charset="utf-8">
+	<script type="text/javascript" src="js/jquery.js"></script>
+
 </head>
 <body>
 <div class="glava">

@@ -1,5 +1,5 @@
 </div>
-<script type="text/javascript" src="js/jquery.js"></script>
+
 <script src="js/iskanje-plugin.js" type="text/javascript"></script>
 <script src="js/iskanje.js" type="text/javascript"></script>
 </body>

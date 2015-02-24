@@ -308,6 +308,7 @@ input[type="submit"]:hover {
 	width: calc(100% - 2px);
 	border: 1px solid #e7e7e7;
 	border-top: none;
+	background-color: #fff;
 }
 
 .tt-suggestion {
@@ -326,4 +327,51 @@ input[type="submit"]:hover {
 
 .tt-hint {
 	color: #bbb;
+}
+
+.galerija {
+	position: relative;
+	overflow: auto;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+.galerija li {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.galerija ul li {
+	float: left;
+	padding: 0;
+	margin: 0;
+	min-height: 400px;
+	background-size: 100% auto; 
+}
+
+.galerija .dots {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0px;
+	text-align: center; 
+}
+
+.galerija .dots li {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin: 0 4px;
+	text-indent: -999em;
+	border: 2px solid #fff;
+	cursor: pointer;
+	transition: background .5s, opacity .5s;
+	border-radius: 30px;
+}
+
+.galerija .dots li.active {
+	background: #fff;
+	opacity: 1;
 }
