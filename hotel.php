@@ -1,4 +1,8 @@
 <?php include 'includes/glava.php'; 
+if(isset($_GET['naziv'])) {
+	pridobiHotelID($_GET['naziv']);
+}
+
 if(isset($_GET['hotelID'])){
 	$data = podatkiHotel($_GET['hotelID']);
 	if(empty($data)) {

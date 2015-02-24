@@ -59,7 +59,7 @@ hr {
 .navZgoraj li a {
 	position: relative;
     display: block;
-    padding: 10px 15px;
+    padding: 7px 15px;
     color: #333;
     text-align: center;
     text-decoration: none;
@@ -77,11 +77,12 @@ hr {
 	text-decoration: none;
 	font-weight: bold;
 	background-color: #fff;
-	border-radius: 5px;
+	border: 1px solid #bbb;
+	box-shadow: 5px 5px 2.5px #888888;
 }
 
-.glava a:hover {	
-	color: #000;
+.glava a:nth-child(1) {
+	margin-right: 10px;
 }
 
 .glava .desno {
@@ -277,4 +278,52 @@ input[type="submit"]:hover {
 	font-size: 1em;
 	margin-top: 2px;
 	padding: 7px;
+}
+
+.iskanje form{
+	padding: 0;
+	margin: 0;
+}
+
+.iskanje input {
+	font: inherit;
+	border-radius: 0;
+	border: none;
+	box-shadow: 1px 1px 0.5px #888888;
+}
+
+.iskanje input[type="submit"] {
+	vertical-align: bottom;
+	display: inline;
+	padding: 6px 10px;
+	margin: 0;
+	border-color: #ccc;
+}
+
+.tt-input:focus {
+	outline: none;
+}
+
+.tt-dropdown-menu {
+	width: calc(100% - 2px);
+	border: 1px solid #e7e7e7;
+	border-top: none;
+}
+
+.tt-suggestion {
+	margin: 0;
+	cursor: pointer;
+}
+
+.tt-suggestion p {
+	margin: 0;
+	padding: 5px;
+}
+
+.tt-suggestion:hover {
+	background-color: #ddd;
+}
+
+.tt-hint {
+	color: #bbb;
 }

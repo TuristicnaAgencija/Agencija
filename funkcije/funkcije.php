@@ -1,10 +1,16 @@
 <?php
+function pridobiHotelID($naziv) {
+	$hotelID = mysql_result(mysql_query("SELECT hotelID FROM hotel WHERE naziv = '$naziv'"), 0);
+	header("Location: hotel.php?hotelID=$hotelID");
+}
+
 function podatkiHotel($hotelID){
 	$data = mysql_fetch_assoc(mysql_query("SELECT * FROM hotel WHERE hotelID = '$hotelID'"));
 	return $data;
 }
 
 function posodobitev($podatki) {
+	$uporabnikID = uporabnikID_Email($podatki['email']);
 	$ime = $podatki['ime'];
 	$priimek = $podatki['priimek'];
 	$email = $podatki['email'];
@@ -14,7 +20,7 @@ function posodobitev($podatki) {
 	$postnaStevilka = $podatki['postnaStevilka'];
 	$telefon = $podatki['telefon'];
 
-	if(mysql_query("UPDATE uporabnik SET ime = '$ime', priimek = '$priimek', email = '$email', ulica = '$ulica', kraj = '$kraj', posta = '$posta', postnaStevilka = '$postnaStevilka', telefon = '$telefon'")) {
+	if(mysql_query("UPDATE uporabnik SET ime = '$ime', priimek = '$priimek', email = '$email', ulica = '$ulica', kraj = '$kraj', posta = '$posta', postnaStevilka = '$postnaStevilka', telefon = '$telefon' WHERE uporabnikID = '$uporabnikID'")) {
 		return true;
 	}
 	else {
@@ -100,8 +106,8 @@ function registracija($podatki) {
 	$emailCode = $podatki['emailCode'];
 
 	if(mysql_query("INSERT INTO uporabnik (ime, priimek, email, geslo, emailCode, kraj, ulica, posta, postnaStevilka, telefon, spol) 
-		VALUES ('$ime', '$priimek', '$email', '$geslo', '$emailCode', '$kraj', '$ulica', '$posta', '$postnaStevilka', '$telefon', '$spol')")) {
-		return true;
+		VALUES ('$ime', '$priimek', '$email', '$geslo', '$emailCode', '$kraj', '$ulica', '$posta', '$postnaStevilka', '$telefon', '$spol')") == true) {
+		header('Location: ?success');
 	}
 	else {
 		return false;

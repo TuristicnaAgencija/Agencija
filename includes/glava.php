@@ -20,7 +20,8 @@ include 'funkcije/init.php';
 		<b>Pišite nam:</b><br>
 		info@agencija.si
 	</span>
-	<?php 
+
+	<?php
 	if(prijavljen() == false) {
 		?>
 	<nav class="desno">
@@ -38,5 +39,12 @@ include 'funkcije/init.php';
 	}
 	?>
 </div>
-<?php include 'includes/navigacija.php' ?>
+<?php 
+		if($currentFile == 'registracija.php' || $currentFile == 'prijava.php') {
+		include 'includes/navigacija1.php';
+	}
+	else {
+		include 'includes/navigacija.php';
+	}
+	?>
 <div class="index">

@@ -23,10 +23,6 @@
 			<a href="">Link 6</a>
 		</li>
 		<li>
-		<form action="hotel.php" method="GET" class="iskanje" autocomplete="off">
-		<input type="text" name="naziv" id="hotel" class="form-field" placeholder="Vnesi želen hotel">
-		<input type="submit" Value="Išči">
-		</form>
 		</li>
 	</ul>
 </nav>

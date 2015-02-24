@@ -1,5 +1,5 @@
 <?php include 'includes/glava.php';
-error_reporting(0); 
+//error_reporting(0); 
 if(!isset($_GET['success'])) {?>
 <div class="registracija">
 <h2>Regstracija</h2>
@@ -38,23 +38,23 @@ if(!isset($_GET['success'])) {?>
 		</div>
 		<div class="form-group">
 			<label>Ulica</label>
-			<input type="text" name="ulica" class="form-field">
+			<input type="text" name="ulica" class="form-field" value="<?php echo $_POST['ulica']; ?>">
 		</div>
 		<div class="form-group">
 			<label>Kraj</label>
-			<input type="text" name="kraj" class="form-field">
+			<input type="text" name="kraj" class="form-field" value="<?php echo $_POST['kraj']; ?>">
 		</div>
 		<div class="form-group">
 			<label>Pošta</label>
-			<input type="text" name="posta" class="form-field">
+			<input type="text" name="posta" class="form-field" value="<?php echo $_POST['posta']; ?>">
 		</div>
 		<div class="form-group">
 			<label>Poštna številka</label>
-			<input type="text" name="postnaStevilka" class="form-field" style="width:100px;">
+			<input type="text" name="postnaStevilka" class="form-field" style="width:100px;" value="<?php echo $_POST['postnaStevilka']; ?>">
 		</div>
 		<div class="form-group">
 			<label>Telefon</label>
-			<input type="text" name="telefon" class="form-field">
+			<input type="text" name="telefon" class="form-field" value="<?php echo $_POST['telefon']; ?>">
 		</div>
 		<div class="form-group">
 			<label>Spol</label>
@@ -135,10 +135,9 @@ if(isset($_POST['submit'])) {
 		$telefon = $_POST['telefon'];
 		$spol = $_POST['spol'];
 		$emailCode = md5($_POST['email'] + microtime());
-		$validacija = $_POST['validacija'];
 		$podatki = array('ime'=>$ime, 'priimek'=>$priimek, 'email'=>$email, 'geslo'=>$geslo, 'ponoviGeslo'=>$ponoviGeslo, 'kraj'=>$kraj, 'ulica'=>$ulica, 'posta'=>$posta, 'postnaStevilka'=>$postnaStevilka, 'telefon'=>$telefon, 'spol'=>$spol, 'emailCode'=>$emailCode);
-		if(registracija($podatki) == true) {
-			header('Location: ?success');
+		if(registracija($podatki) == false) {
+			$errors[] = 'Prišlo je do napake.';
 		}
 	}
 
