@@ -1,19 +1,19 @@
 $(document).ready(function(){
-	var users = new Bloodhound({
+	var hotels = new Bloodhound({
 		datumTokenizer: Bloodhound.tokenizers.obj.whitespace('naziv'),
 		queryTokenizer: Bloodhound.tokenizers.whitespace,
 		remote: 'iskanje.php?query=%QUERY'
 	});
 
-	users.initialize();
+	hotels.initialize();
 
 	$('#hotel').typeahead({
 		hint: true,
 		highlight: true,
 		minLenght: 2
 	}, {
-		name: 'hotel',
-		displayKey: 'hotel',
-		source: users.ttAdapter() 
+		name: 'hotels',
+		displayKey: 'naziv',
+		source: hotels.ttAdapter() 
 	});
 });
