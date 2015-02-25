@@ -38,13 +38,13 @@ foreach(range(1, 10000) as $x) {
 */
 
 /*POPRAVEK CEN SOB*/
-
+/*
 foreach(range(3276, 13275) as $x) {
 $db->query("
 	UPDATE soba SET cenaNaDan = '{$faker->randomFloat(2, 30, 250)}' WHERE sobaID = '$x'");
 
 }
-
+*/
 /*DODAJANJE HOTELOV*/
 /*
 $db -> query("DELETE FROM hotel");

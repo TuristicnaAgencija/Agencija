@@ -310,6 +310,7 @@ input[type="submit"]:hover {
 	border: 1px solid #e7e7e7;
 	border-top: none;
 	background-color: #fff;
+	z-index: 9999;
 }
 
 .tt-suggestion {
@@ -320,6 +321,7 @@ input[type="submit"]:hover {
 .tt-suggestion p {
 	margin: 0;
 	padding: 5px;
+	z-index: 9999;
 }
 
 .tt-suggestion:hover {
@@ -423,4 +425,18 @@ input[type="submit"]:hover {
 
 .hotel hr {
 	margin: 5px 0;
+}
+
+.index .iskanje {
+	display: inline-block;
+	width: 30%;
+	background-color: #fff;
+}
+
+.index .hoteli {
+	display: inline-block;
+	position: absolute;
+	background-color: #fff;
+	width: 65%;
+	height: 500px;
 }
