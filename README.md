@@ -1,6 +1,6 @@
 # Turistična agencija - Projekt pri predmetu NSA
 
-Plugini:
+<b>Plugini:</b><br>
 Faker<br>
 jQuery<br>
 search plugin (Twitter)
