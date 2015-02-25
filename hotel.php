@@ -5,6 +5,8 @@ if(isset($_GET['naziv'])) {
 
 if(isset($_GET['hotelID'])){
 	$data = podatkiHotel($_GET['hotelID']);
+	$steviloSob = prestejSobe($_GET['hotelID']);
+	$minCena = minCena($_GET['hotelID']);
 	if(empty($data)) {
 		echo '<h1>Napaka prosimo vrnite se na prejšnjo stran</h1>';
 		die();
@@ -50,12 +52,12 @@ else {
 		<span class="levo">
 			<h4 style="margin:0px; padding:0;">Osnovni podatki</h4><hr>	
 			<?php echo $data['naziv']. '<br>'.$data['ulica'].'<br>'.$data['postnaStevilka'].' '.$data['posta'].'<br>'. $data['kraj']. '<br>'. $data['email']. '<br>'. $data['telefon'];?>
-			<br><br>Število sob<br>
+			<br><br><?php echo $steviloSob; ?> sob<br>
 			Število prostih sob<br>
-			Valuta<br>
+			Valuta: <?php echo $data['valuta'];?><br>
 			<br>
 			Cena<br>
-			select min from sobe<br><br>
+			Že od <?php echo number_format($minCena, 2); ?> na dan<br><br>
 			Check-in: 16:00<br>
 			Check-out: 10:00
 		</span>

@@ -1,4 +1,24 @@
 <?php
+function iskanjePoDnevih($hotelID) {
+	$hotelID = $_SESSION['hotelID'];
+}
+
+function iskanjePoSteviluPostelj($hotelID){
+	$hotelID = $_SESSION['hotelID'];
+}
+
+function iskanjePoDnevuInSteviluPostelj($hotelID) {
+
+}
+
+function minCena($hotelID) {
+	return (mysql_result(mysql_query("SELECT MIN(soba.cenaNaDan) FROM hotel LEFT JOIN soba ON soba.hotelID = hotel.hotelID WHERE hotel.hotelID = '$hotelID'"), 0));
+}
+
+function prestejSobe($hotelID) {
+	return (mysql_result(mysql_query("SELECT COUNT(soba.sobaID) FROM hotel LEFT JOIN soba ON soba.hotelID = hotel.hotelID WHERE hotel.hotelID = '$hotelID'"), 0));
+}
+
 function pridobiHotelID($naziv) {
 	$hotelID = mysql_result(mysql_query("SELECT hotelID FROM hotel WHERE naziv = '$naziv'"), 0);
 	header("Location: hotel.php?hotelID=$hotelID");

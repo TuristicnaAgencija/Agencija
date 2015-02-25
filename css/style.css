@@ -9,6 +9,7 @@ html {
 body {
   margin: 0;
   padding: 0;
+  background-color: #eee;
 }
 
 ul {
@@ -214,10 +215,10 @@ input[type="submit"]:hover {
 }
 
 .hotel .slike {
-	border: solid #000;
 	display: inline-block;
 	height: 520px;
 	width: 45%;
+	background-color: #fff;
 }
 
 .hotel .slike img {
@@ -228,11 +229,11 @@ input[type="submit"]:hover {
 }
 
 .hotel .podrobnosti {
-	border: solid #000;
 	width: 45%;
 	height: 400px;
 	float: right;
 	line-height: 1.4em;
+	background-color: #fff;
 }
 
 .hotel .podrobnosti hr {
@@ -374,4 +375,52 @@ input[type="submit"]:hover {
 .galerija .dots li.active {
 	background: #fff;
 	opacity: 1;
+}
+
+.hotel .moznosti {
+	display: inline-block;
+	width: 30%;
+	height: 400px;
+	background-color: #fff;
+}
+
+.hotel .prosteSobe {
+	display: inline-block;
+	width: 60%;
+	height: 400px;
+	float: right;
+	background-color: #fff;
+}
+
+.prosteSobe .box {
+	display: block;
+	width: calc(100%-20px);
+	padding: 10px;
+	border: solid black;
+}
+
+.box .row1 {
+	display: inline-block;
+	line-height: 1.4em;
+	position: absolute;
+	margin-left: 20px;
+	margin-top: 5px;
+}
+
+.box .row2 {
+	display: inline-block;
+	line-height: 1.4em;
+	position: absolute;
+	margin-left: 150px;
+	margin-top: 5px;
+}
+
+.hotel h3 {
+	margin: 0;
+	padding: 5px;
+	padding-top: 10px;
+}
+
+.hotel hr {
+	margin: 5px 0;
 }

@@ -1,5 +1,5 @@
 <?php include 'includes/glava.php';
-//error_reporting(0); 
+error_reporting(0); 
 if(!isset($_GET['success'])) {?>
 <div class="registracija">
 <h2>Regstracija</h2>
