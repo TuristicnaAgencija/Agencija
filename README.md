@@ -3,5 +3,5 @@
 <b>Plugini:</b><br>
 Faker (https://github.com/fzaninotto/Faker)<br>
 jQuery(http://www.jqueryscript.net/)<br>
-search plugin (Twitter)
+search plugin (Twitter)<br>
 unslide (https://github.com/idiot/unslider)
