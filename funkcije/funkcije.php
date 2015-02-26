@@ -1,4 +1,12 @@
 <?php
+function vsiHoteli(){
+	$x = mysql_query("SELECT * FROM hotel");
+	while($a = mysql_fetch_assoc($x)){
+		$data[] = $a;
+	}
+	return $data;
+}
+
 function iskanjePoDnevih($hotelID) {
 	$hotelID = $_SESSION['hotelID'];
 }
