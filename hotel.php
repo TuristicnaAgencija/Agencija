@@ -68,11 +68,7 @@ else {
 			echo '<b>Spletna stan:</b> <a href="'.$data['url'].'">'.$data['url'].'</a><br><b>Wi-Fi:</b> '.$data['wifi'].'<br><b>Zajtrk:</b> '.$data['zajtrk'].'<br><b>Kosilo:</b> '.$data['kosilo'].'<br><b>Vecerja:</b> ' .$data['vecerja']
 			.'<br><b>Bar:</b> '.$data['bar'].'<br><b>Terasa:</b> '.$data['terasa'].'<br><b>Igralnica:</b> '.$data['igralnica'].'<br><b>Promet:</b> '.$data['promet'];
 			?>
-			<br>Parkirisče<br>
-			Dodatni prostoi<br>
-			Prostor<br>
-			Prostor<br>
-			Prostor<br>
+
 		</span>
 	</div>
 	<div class="rezerviraj">

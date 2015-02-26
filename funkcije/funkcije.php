@@ -1,4 +1,28 @@
 <?php
+function sobePoHotelih($hotelID) {
+	$x = mysql_query("SELECT * FROM soba RIGHT JOIN hotel ON hotel.hotelID = soba.hotelID WHERE hotel.hotelID = '$hotelID'");
+	while($a = mysql_fetch_assoc($x)){
+		$data[] = $a;
+	}
+	return $data;
+}
+
+function vsiHoteliKraj($kraj){
+	$x = mysql_query("SELECT * FROM hotel WHERE kraj = '$kraj'");
+	while($a = mysql_fetch_assoc($x)){
+		$data[] = $a;
+	}
+	return $data;
+}
+
+function vsiHoteliZvezdice($zvezdice){
+	$x = mysql_query("SELECT * FROM hotel WHERE zvezdice = '$zvezdice'");
+	while($a = mysql_fetch_assoc($x)){
+		$data[] = $a;
+	}
+	return $data;
+}
+
 function vsiHoteli(){
 	$x = mysql_query("SELECT * FROM hotel");
 	while($a = mysql_fetch_assoc($x)){

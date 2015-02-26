@@ -1,4 +1,5 @@
 <?php include 'includes/glava.php'; 
+zasciteno();
 if(isset($_GET['od']) && isset($_GET['do']) && isset($_GET['steviloPostelj']) &&!empty($_GET['od']) && !empty($_GET['do']) && !empty($_GET['steviloPostelj'])) {
 	iskanjePoDnevuInSteviluPostelj($_SESSION['hotelID']);
 }
@@ -13,6 +14,7 @@ else {
 if(isset($_GET['hotelID'])) {
 	$hotel = podatkiHotel($_GET['hotelID']);
 	$data = podatkiUporabnik($session_uporabnikID);
+	$sobe = sobePoHotelih($_GET['hotelID']);
 	$_SESSION['hotelID'] = $_GET['hotelID'];
 }
 else if (isset($_SESSION['hotelID'])) {
@@ -67,6 +69,9 @@ $data = podatkiUporabnik($session_uporabnikID);
 	<div class="prosteSobe">
 		<h3 style="text-align:center;">Proste sobe</h3>
 		<hr>
+		<?php
+		foreach($sobe as $el) {
+		?>
 		<div class="box">
 			<img src="http://placekitten.com/g/80/110">
 			<span class="row1">
@@ -86,6 +91,7 @@ $data = podatkiUporabnik($session_uporabnikID);
 			</span>
 			<a href="">Rezerviraj</a>
 		</div>
+		<?php } ?>
 	</div>
 	
 </div>

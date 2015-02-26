@@ -31,3 +31,4 @@
 	</ul>
 </nav>
 </div>
+<script src="js/iskanje.js" type="text/javascript"></script>

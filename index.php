@@ -1,16 +1,29 @@
 <?php include 'includes/glava.php'; 
-$hotel = vsiHoteli();
 ?>
 <div class="prva">
 <div class="iskanje1">
-	<form method="get">
+	<form method="get" action="index.php" autocomplete="off">
 		<div class="form-group">
 			<label>Išči po kraju</label>
-			<input type="text" name="kraj" class="form-field">
+			<input type="text" name="kraj" id="kraj" class="form-field">
 		</div>
 		<div class="form-group">
+			<input type="submit" value="Iskanje">
+		</div>
+	</form>
+	<form method="get">
+		<div class="form-group">
 			<label>Išči po številu zvezdic</label>
-			<input type="text" name="zvezdice" class="form-field">
+			<select name="zvezdice" class="form-field" style="height:auto">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<input type="submit" value="Iskanje">
 		</div>
 	</form>
 </div>
@@ -18,13 +31,36 @@ $hotel = vsiHoteli();
 	<h3>Vsi hoteli</h3><hr>
 	<div class="content">
 	<?php
-	foreach($hotel as $el){
-		echo '<div class="box"><img src="http://placekitten.com/g/150/110">';
-		echo '</div>';
+	if(isset($_GET['zvezdice'])) {
+		$hotel = vsiHoteliZvezdice($_GET['zvezdice']);
+		foreach($hotel as $el){
+			echo '<div class="box" style="margin-top:-10px;"><img src="http://placekitten.com/g/150/110">';
+			echo '<span class="row1">';
+			echo '<b>'.$el['naziv'].'</b><br>'.$el['kraj'].'<br>'.$el['ulica'].'<br>'.$el['posta'].'<br>'.$el['postnaStevilka'];
+			echo '</span><a class="gumb" href="hotel.php?naziv='.$el['naziv'].'">Podrobnosti <i class="fa fa-arrow-right"></i></a></div>';
+		}
 	}
-
+	else if (isset($_GET['kraj'])) {
+		$hotel = vsiHoteliKraj($_GET['kraj']);
+		foreach($hotel as $el){
+			echo '<div class="box" style="margin-top:-10px;"><img src="http://placekitten.com/g/150/110">';
+			echo '<span class="row1">';
+			echo '<b>'.$el['naziv'].'</b><br>'.$el['kraj'].'<br>'.$el['ulica'].'<br>'.$el['posta'].'<br>'.$el['postnaStevilka'];
+			echo '</span><a class="gumb" href="hotel.php?naziv='.$el['naziv'].'">Podrobnosti <i class="fa fa-arrow-right"></i></a></div>';
+		}
+	}
+	else {
+		$hotel = vsiHoteli();
+		foreach($hotel as $el){
+			echo '<div class="box" style="margin-top:-10px;"><img src="http://placekitten.com/g/150/110">';
+			echo '<span class="row1">';
+			echo '<b>'.$el['naziv'].'</b><br>'.$el['kraj'].'<br>'.$el['ulica'].'<br>'.$el['posta'].'<br>'.$el['postnaStevilka'];
+			echo '</span><a class="gumb" href="hotel.php?naziv='.$el['naziv'].'">Podrobnosti <i class="fa fa-arrow-right"></i></a></div>';
+		}
+	}
 	?>
 	</div>
 </div>
 </div>
+<script src="js/iskanje1.js" type="text/javascript"></script>
 <?php include 'includes/noga.php'; ?>
