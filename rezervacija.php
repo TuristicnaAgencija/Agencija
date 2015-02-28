@@ -1,13 +1,17 @@
 <?php include 'includes/glava.php'; 
 zasciteno();
 if(isset($_GET['od']) && isset($_GET['do']) && isset($_GET['steviloPostelj']) &&!empty($_GET['od']) && !empty($_GET['do']) && !empty($_GET['steviloPostelj'])) {
-	iskanjePoDnevuInSteviluPostelj($_SESSION['hotelID']);
+	$sobe = iskanjePoDnevuInSteviluPostelj($_SESSION['hotelID']);
+}
+else if(isset($_GET['kvaliteta']) && !empty($_GET['kvaliteta'])) {
+	$sobe = iskanjePoKvaliteti($_SESSION['hotelID'], $_GET['kvaliteta']);
 }
 else if(isset($_GET['steviloPostelj']) && !empty($_GET['steviloPostelj'])) {
-	iskanjePoSteviluPostelj($_SESSION['hotelID']);
+	$sobe = iskanjePoSteviluPostelj($_SESSION['hotelID'], $_GET['steviloPostelj']);
 }
 else if(isset($_GET['od']) && isset($_GET['do']) && !empty($_GET['od']) && !empty($_GET['do'])) {
-	iskanjePoDnevih($_SESSION['hotelID']);
+	$sobe = iskanjePoDnevih($_SESSION['hotelID']);
+	echo 'VSE';
 }
 else {
 
@@ -45,14 +49,24 @@ $data = podatkiUporabnik($session_uporabnikID);
 		<div class="form-group">
 		<label>Število postelj</label>
 		<select name="steviloPostelj" class="form-field" style="height:auto;">
-		<option value="2" selected>2</option>
-		<option value="3">3</option>
-		<option value="4">4</option>
-		<option value="6">6</option>
+			<option value="">Izberi</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
 		</select>
 		</div>
 		<div class="form-group">
 		<label>Kvaliteta</label>
+		<select name="kvaliteta" class="form-field" style="height:auto;">
+			<option value="">Izberi</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
 		</div>
 		<div class="form-group">
 		<label>Od</label>
@@ -63,35 +77,34 @@ $data = podatkiUporabnik($session_uporabnikID);
 		<input type="date" name="do" class="form-field">
 		</div>
 		<input type="submit" value="Išči">
+		<input type="button" name="cancel" value="Reset" onclick="location.href='rezervacija.php?hotelID=<?php echo $_SESSION['hotelID']; ?>'">
 	</form>
-	</div>
 
+	</div>
 	<div class="prosteSobe">
-		<h3 style="text-align:center;">Proste sobe</h3>
+	<h3 style="text-align:center;">Proste sobe</h3>
 		<hr>
+		<div class="content">
 		<?php
 		foreach($sobe as $el) {
 		?>
 		<div class="box">
 			<img src="http://placekitten.com/g/80/110">
 			<span class="row1">
-			Število postelj:<br>
-			Številka sobe: <br>
-			Nadstropje:<br>
-			Balkon:<br>
-			Kopalnica:
+			Število postelj: <?php echo $el['st_postelj']; ?><br>
+			Številka sobe: <?php echo $el['stevilka']; ?><br>
+			Nadstropje: <?php echo $el['nadstropje']; ?><br><br><br>
 			</span>
 			<span class="row2">
-			Klima:<br>
-			Minibar:<br>
-			Hladilnik:<br>
-			Internetni prikluček: <br>
-			TV:<br>
-			<b>Kvaliteta:</b><br>
+			Klima: <?php echo $el['klima']; ?><br>
+			Minibar: <?php echo $el['minibar']; ?><br>
+			Balkon: <?php echo $el['balkon']; ?><br><br>
+			<b>Kvaliteta: </b><?php echo $el['kvaliteta']; ?>
 			</span>
 			<a href="">Rezerviraj</a>
 		</div>
 		<?php } ?>
+		</div>
 	</div>
 	
 </div>

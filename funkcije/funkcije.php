@@ -32,11 +32,23 @@ function vsiHoteli(){
 }
 
 function iskanjePoDnevih($hotelID) {
-	$hotelID = $_SESSION['hotelID'];
+	echo $hotelID;
 }
 
-function iskanjePoSteviluPostelj($hotelID){
-	$hotelID = $_SESSION['hotelID'];
+function iskanjePoSteviluPostelj($hotelID, $postelje){
+	$x = mysql_query("SELECT * FROM soba RIGHT JOIN hotel ON hotel.hotelID = soba.hotelID WHERE hotel.hotelID = '$hotelID' AND st_postelj = '$postelje' ");
+	while($a = mysql_fetch_assoc($x)){
+		$data[] = $a;
+	}
+	return $data;
+}
+
+function iskanjePoKvaliteti($hotelID, $kvaliteta) {
+	$x = mysql_query("SELECT * FROM soba RIGHT JOIN hotel ON hotel.hotelID = soba.hotelID WHERE hotel.hotelID = '$hotelID' AND kvaliteta = '$kvaliteta' ");
+	while($a = mysql_fetch_assoc($x)){
+		$data[] = $a;
+	}
+	return $data;
 }
 
 function iskanjePoDnevuInSteviluPostelj($hotelID) {

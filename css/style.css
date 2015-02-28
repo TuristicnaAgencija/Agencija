@@ -389,32 +389,30 @@ input[type="submit"]:hover {
 .hotel .prosteSobe {
 	display: inline-block;
 	width: 60%;
-	height: 400px;
+	height: 600px;
 	float: right;
 	background-color: #fff;
+	margin-bottom: 200px;
 }
 
 .prosteSobe .box {
 	display: block;
 	width: calc(100%-20px);
 	padding: 10px;
-	border: solid black;
 }
 
 .box .row1 {
 	display: inline-block;
 	line-height: 1.4em;
-	position: absolute;
+	position: relative;
 	margin-left: 20px;
-	margin-top: 5px;
 }
 
 .box .row2 {
 	display: inline-block;
 	line-height: 1.4em;
-	position: absolute;
-	margin-left: 150px;
-	margin-top: 5px;
+	position: relative;
+	margin-left: 100px;
 }
 
 .hotel h3 {
