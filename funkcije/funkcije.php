@@ -202,7 +202,7 @@ function drzave() {
 
 
 function podatkiAgent($agentID) {
-	return mysql_fetch_assoc(mysql_query("SELECT * FROM agent WHERE agentID = '$agentID'"))
+	return mysql_fetch_assoc(mysql_query("SELECT * FROM agent WHERE agentID = '$agentID'"));
 }
 
 function podatkiAgentje($agencijaID) {
