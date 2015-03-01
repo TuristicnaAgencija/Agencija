@@ -199,3 +199,55 @@ function drzave() {
 	}
 	return $drzave;
 }
+
+
+function podatkiAgent($agentID) {
+	return mysql_fetch_assoc(mysql_query("SELECT * FROM agent WHERE agentID = '$agentID'"))
+}
+
+function podatkiAgentje($agencijaID) {
+	$query = mysql_query("SELECT * FROM agent RIGHT JOIN agencija ON agent.agencijaID = agencija.agencijaID WHERE agencija.agencijaID = '$agencijaID'");
+	while($a = mysql_fetch_assoc($query)){
+		$data[] = $a;
+	}
+	return $data;
+}
+
+function podatkiAgencija($agencijaID) {
+	return(mysql_fetch_assoc(mysql_query("SELECT * FROM agencija WHERE agencijaID = '$agencijaID'")));
+}
+
+function dodajAgenta($podatki) {
+	$ime = $podatki['ime'];
+	$priimek = $podatki['priimek'];
+	$email = $podatki['email'];
+	$geslo = $podatki['geslo'];
+	$telefon = $podatki['telefon'];
+	$spol = $podatki['spol'];
+	$agencija = $podatki['agencija'];
+	$drzava = $podatki['drzava'];
+	if(mysql_query("INSERT INTO agent (ime, priimek, email, geslo, telefon, spol, agencija, drzava)
+		VALUES ('$ime', '$priimek', '$email', '$geslo', '$telefon', '$spol', '$agencija', '$drzava')"))
+		return true;
+	else
+		return false;
+}
+
+function dodajAgencijo($podaki) {
+	$naziv = $podaki['naziv'];
+	$ulica = $podaki['ulica'];
+	$kraj = $podaki['kraj'];
+	$posta = $podaki['posta'];
+	$postnaStevilka = $podaki['postnaStevilka'];
+	$drzava = $podaki['drzava'];
+	$email = $podaki['email'];
+	$telefon = $podaki['telefon'];
+	$url = $podaki['url'];
+	$fax = $podaki['fax'];
+	$davcan = $podaki['davcna'];
+	if(mysql_query("INSERT INTO agencija (naziv, ulica, kraj, posta, postnaStevilka, drzava, email, telefon, url, fax, davcna) 
+		VALUES ('$naziv', '$ulica', '$kraj', '$posta', '$postnaStevilka', '$drzava', '$email', '$telefon', '$url', '$fax', '$davcna')"))
+		return true;
+	else 
+		return false;
+}
