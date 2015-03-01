@@ -106,3 +106,30 @@ foreach(range(1, 100) as $x) {
 }
 
 */
+/*DODAJANJE AGENCIJ*/
+/*
+$db -> query("DELETE FROM agencija");
+
+foreach(range(1, 100) as $x) {
+	$db -> query("
+		INSERT INTO agencija (naziv, ulica, kraj, posta, postnaStevilka, drzava, email, telefon, url, fax, davcna) 
+		VALUES ('{$faker->company}', '{$faker->streetName}', '{$faker->city}', '{$faker->state}', '{$faker->postCode}', '{$faker->numberBetween(1,250)}', '{$faker->email}', '{$faker->phoneNumber}', '{$faker->domainName}', '{$faker->phoneNumber}', '{$faker->randomNumber(8)}')");
+}
+*/
+
+/*DODAJANJE AGENTOV*/
+/*
+$db -> query("DELETE FROM agent");
+
+foreach(range(1, 250) as $x) {
+	$rando = rand(1, 100);
+	if($rando < 50)
+		$spol = 'Moški';
+	else
+		$spol = 'Ženski';
+	$geslo = sha1('miha2255');
+	$db -> query("
+		INSERT INTO agent (ime, priimek, email, geslo, slika, telefon, spol, drzava, ocenaAgenta, agencijaID)
+		VALUES ('{$faker->firstName}', '{$faker->lastName}', '{$faker->email}', '$geslo', 'https://placekitten.com/g/130/180', '{$faker->phoneNumber}', '$spol', '{$faker->numberBetween(1,250)}', '{$faker->numberBetween(1,5)}', '{$faker->numberBetween(19,119)}')");
+}
+*/
