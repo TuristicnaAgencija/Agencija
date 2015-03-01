@@ -1,7 +1,10 @@
 <?php include 'includes/glava.php'; 
 ?>
 <div class="prva">
+<h1 style="text-align:center">Iskanje po hotelih</h1>
+<hr>
 <div class="iskanje1">
+<h3 style="text-align:center">Dodatne možnosti</h3>
 	<form method="get" action="index.php" autocomplete="off">
 		<div class="form-group">
 			<label>Išči po kraju</label>
@@ -29,7 +32,7 @@
 	</form>
 </div>
 <div class="hoteli">
-	<h3>Vsi hoteli</h3><hr>
+	<h3 style="text-align:center">Vsi hoteli</h3><hr>
 	<div class="content">
 	<?php
 	if(isset($_GET['zvezdice'])) {

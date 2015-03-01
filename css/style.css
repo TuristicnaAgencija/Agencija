@@ -465,3 +465,27 @@ input[type="submit"]:hover {
 	float: right;
 	margin-top: 30px;
 }
+
+.agencija {
+
+}
+
+.agencija .informacije {
+	display: inline-block;
+	width: 30%;
+	background-color: #fff;
+	text-align: center;
+	line-height: 1.4em;
+}
+
+.agencija .agentje {
+	display: inline-block;
+	float: right;
+	width: 60%;
+	background-color: #fff;
+}
+
+.noga {
+	height: 200px;
+	width: 100%;
+}
