@@ -5,7 +5,7 @@
 	<form method="get" action="index.php" autocomplete="off">
 		<div class="form-group">
 			<label>Išči po kraju</label>
-			<input type="text" name="kraj" id="kraj" class="form-field">
+			<input type="text" name="kraj" id="kraj" class="form-field" placeholder="Vnesi želen kraj">
 		</div>
 		<div class="form-group">
 			<input type="submit" value="Iskanje">
@@ -15,6 +15,7 @@
 		<div class="form-group">
 			<label>Išči po številu zvezdic</label>
 			<select name="zvezdice" class="form-field" style="height:auto">
+			<option value="">Izberi</opion>
 			<option value="1">1</option>
 			<option value="2">2</option>
 			<option value="3">3</option>
