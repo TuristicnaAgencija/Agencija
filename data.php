@@ -133,3 +133,29 @@ foreach(range(1, 250) as $x) {
 		VALUES ('{$faker->firstName}', '{$faker->lastName}', '{$faker->email}', '$geslo', 'https://placekitten.com/g/130/180', '{$faker->phoneNumber}', '$spol', '{$faker->numberBetween(1,250)}', '{$faker->numberBetween(1,5)}', '{$faker->numberBetween(19,119)}')");
 }
 */
+
+/*DODAJANJE UPORABNIKOV*/
+//$db -> query("DELETE FROM uporabnik WHERE uporabnikID > 10");
+/*
+foreach(range(1, 1000) as $x) {
+
+	$geslo = sha1('miha2255');
+
+if($x%2 == 0){
+	$db -> query("
+		INSERT INTO uporabnik (ime, priimek, email, geslo, emailCode, slika, kraj, ulica, posta, postnaStevilka, telefon, spol)
+		VALUES ('{$faker->firstName('male')}', '{$faker->lastName}', '{$faker->email}', '$geslo', '{$faker->sha1}', 'https://placekitten.com/g/300/300', '{$faker->city}', '{$faker->streetAddress}', '{$faker->state}', '{$faker->postCode}', '{$faker->phoneNumber}', 'Moški')");
+}
+else
+$db -> query("
+		INSERT INTO uporabnik (ime, priimek, email, geslo, emailCode, slika, kraj, ulica, posta, postnaStevilka, telefon, spol)
+		VALUES ('{$faker->firstName('female')}', '{$faker->lastName}', '{$faker->email}', '$geslo', '{$faker->sha1}', 'https://placekitten.com/g/300/300', '{$faker->city}', '{$faker->streetAddress}', '{$faker->state}', '{$faker->postCode}', '{$faker->phoneNumber}', 'Ženski')");
+
+}
+*/
+/*DODAJANJE REZERVACIJI*//*
+$db -> query("DELETE FROM rezervacija");
+foreach(range(1, 10) as $x) {
+
+}
+*/
