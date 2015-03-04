@@ -54,7 +54,7 @@ if(!isset($_GET['success'])) {?>
 		</div>
 		<div class="form-group">
 			<label>Telefon</label>
-			<input type="text" name="telefon" class="form-field" value="<?php echo $_POST['telefon']; ?>">
+			<input type="text" name="telefon" class="form-field" value="<?php echo $_POST['telefon']; ?>" required>
 		</div>
 		<div class="form-group">
 			<label>Spol</label>
@@ -87,7 +87,8 @@ $errors = array();
 if(isset($_POST['submit'])) {
 	if(empty($_POST['ime']) == false && empty($_POST['priimek']) == false && 
 	empty($_POST['email']) == false && empty($_POST['geslo']) == false && 
-	empty($_POST['ponoviGeslo']) == false) {
+	empty($_POST['ponoviGeslo']) == false && empty($_POST['spol']) == false) {
+
 	if ($_POST['geslo'] !== $_POST['ponoviGeslo']) {
 		$errors[] = 'Gesli se ne ujemata';
 	}
@@ -96,8 +97,12 @@ if(isset($_POST['submit'])) {
 		$errors[] = 'Ime in priimek morata vsebovati vsaj tri črke';
 	}
 
+	if (preg_match("#[0-9]+#", $_POST['ime']) && preg_match("#[0-9]+#", $_POST['priimek'])) {
+        $errors[] = 'Ime in priimek lahko vsebujete samo črke';
+    }
+
 	if(emailObstaja($_POST['email']) == true){
-		$errors[] = 'Ta email že obstaja.';
+		$errors[] = 'Ta email že obstaja';
 	}
 
 	if(strlen($_POST['geslo']) < 6){
@@ -112,8 +117,24 @@ if(isset($_POST['submit'])) {
         $errors[] = 'Geslo mora vsebovati vsaj eno črko';
     }
 
+    if (!preg_match("#[0-9]+#", $_POST['ulica'])) {
+   	    $errors[] = 'Manjka hišna številka';
+   	}
+
+   	if (preg_match("#[0-9]+#", $_POST['posta'])) {
+        $errors[] = 'Pošta ne sme vsebovati številk';
+    }
+
+    if (!preg_match("#[0-9]+#", $_POST['postnaStevilka'])) {
+        $errors[] = 'Poštna številka lahko vsebuje samo številke';
+    }
+
+    if (!preg_match("#[0-9]+#", $_POST['telefon'])) {
+    	$errors[] = 'Vnešena telefonska številka ni veljavna';
+	}
+
     if($_POST['validacija'] != 7) {
-    	$errors[] = 'Validacija ni uspela';
+    	$errors[] = 'Validacija ni uspela. Očitno ste robot';
     }
 
 	}
@@ -147,7 +168,7 @@ if(isset($_POST['submit'])) {
 }
 else {
 	if(isset($_GET['success'])) {
-		echo '<h1>Ragistracija je bila uspešna</h1><br>
+		echo '<h1>Registracija je bila uspešna</h1><br>
 		<h3>Pojdite na prijavno stran, kjer se lahko sedaj prijavite</h3>';
 	}
 }

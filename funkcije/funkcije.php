@@ -8,7 +8,6 @@ function rezervacijeUporabnikZgodovina($uporabnikID) {
 	return $data;
 }
 
-
 function rezervacijeUporabnik($uporabnikID) {
 	$date = date("Y-m-d");
 	$x = mysql_query("SELECT rezervacija.cena, rezervacija.od, rezervacija.do, hotel.naziv, soba.stevilka, hotel.slika FROM rezervacija LEFT JOIN hotel ON rezervacija.hotelID = hotel.hotelID RIGHT JOIN soba ON soba.sobaID = rezervacija.sobaID WHERE rezervacija.uporabnikID = '$uporabnikID' AND rezervacija.od > '$date'");
