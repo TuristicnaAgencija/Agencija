@@ -6,6 +6,8 @@ if($session_uporabnikID != $_GET['uporabnikID']) {
 }
 if(isset($_GET['uporabnikID'])) {
 	$data = podatkiUporabnik($_GET['uporabnikID']);
+	$rezervacije = rezervacijeUporabnik($session_uporabnikID);
+	$rezervacijaZgodovina = rezervacijeUporabnikZgodovina($session_uporabnikID);
 		if(empty($data)) {
 		echo '<h1>Napaka prosimo vrnite se na prejšnjo stran</h1>';
 		die();
@@ -44,10 +46,16 @@ else {
 	<div class="rezarvacije">
 		<h2>Oglejte si svoje rezarvacije</h2>
 		<h4>Odprte rezarvacije</h4>
-		....
+		<?php
+		print_r($rezervacije);
+
+		?>
 		<hr>
 		<h4>Zgodovina</h4>
-		....
+		<?php
+		print_r($rezervacijaZgodovina);
+		?>
 	</div>
 </div>
 <?php include 'includes/noga.php';?>
+
