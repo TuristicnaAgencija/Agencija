@@ -1,4 +1,41 @@
 <?php
+function rezervacijeUporabnikZgodovina($uporabnikID) {
+	$date = date("Y-m-d");
+	$x = mysql_query("SELECT rezervacija.cena, rezervacija.od, rezervacija.do, hotel.naziv, soba.stevilka, hotel.slika FROM rezervacija LEFT JOIN hotel ON rezervacija.hotelID = hotel.hotelID RIGHT JOIN soba ON soba.sobaID = rezervacija.sobaID WHERE rezervacija.uporabnikID = '$uporabnikID' AND rezervacija.od < '$date'");
+	while($a = mysql_fetch_assoc($x)){
+		$data[] = $a;
+	}
+	return $data;
+}
+
+
+function rezervacijeUporabnik($uporabnikID) {
+	$date = date("Y-m-d");
+	$x = mysql_query("SELECT rezervacija.cena, rezervacija.od, rezervacija.do, hotel.naziv, soba.stevilka, hotel.slika FROM rezervacija LEFT JOIN hotel ON rezervacija.hotelID = hotel.hotelID RIGHT JOIN soba ON soba.sobaID = rezervacija.sobaID WHERE rezervacija.uporabnikID = '$uporabnikID' AND rezervacija.od > '$date'");
+	while($a = mysql_fetch_assoc($x)){
+		$data[] = $a;
+	}
+	return $data;
+}
+
+function cenaSobe($sobaID) {
+	return mysql_result(mysql_query("SELECT cenaNaDan FROM soba WHERE sobaID = '$sobaID'"), 0);
+}
+
+function rezerviraj($podatki) {
+	$uporabnikID = $podatki['uporabnikID'];
+	$hotelID = $podatki['hotelID'];
+	$sobaID = $podatki['sobaID'];
+	$od = $podatki['od'];
+	$do = $podatki['do'];
+	$cena = $podatki['cena'];
+	if(mysql_query("INSERT INTO rezervacija (uporabnikID, hotelID, sobaID, od, do, cena) 
+		VALUES ('$uporabnikID', '$hotelID', '$sobaID', '$od', '$do', '$cena')"))
+		return true;
+	else 
+		return false;
+}
+
 function sobePoHotelih($hotelID) {
 	$x = mysql_query("SELECT * FROM soba RIGHT JOIN hotel ON hotel.hotelID = soba.hotelID WHERE hotel.hotelID = '$hotelID'");
 	while($a = mysql_fetch_assoc($x)){
