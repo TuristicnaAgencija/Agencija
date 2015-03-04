@@ -101,7 +101,7 @@ $data = podatkiUporabnik($session_uporabnikID);
 			Balkon: <?php echo $el['balkon']; ?><br><br>
 			<b>Kvaliteta: </b><?php echo $el['kvaliteta']; ?>
 			</span>
-			<a href="">Rezerviraj</a>
+			<a href="rezerviraj.php?userID=<?php echo $session_uporabnikID?>&sobaID=<?php echo $el['sobaID']; ?>">Rezerviraj</a>
 		</div>
 		<?php } ?>
 		</div>

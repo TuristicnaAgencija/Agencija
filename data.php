@@ -159,3 +159,14 @@ foreach(range(1, 10) as $x) {
 
 }
 */
+
+/*DODAJANJE REZERVACIJ*/
+$db -> query("DELETE FROM rezervacija1 WHERE rezervacijaID > 10");
+
+foreach(range(1, 10) as $x) {
+		
+	$db -> query("
+		INSERT INTO rezervacija1 (uporabnikID, sobaID, od, do, cena)
+		VALUES ('{$faker->numberBetween(1, 250)}', '{$faker->numberBetween(1, 10000)}', '')
+		");
+}

@@ -489,3 +489,16 @@ input[type="submit"]:hover {
 	height: 200px;
 	width: 100%;
 }
+
+.rezerviraj {
+
+}
+
+.rezerviraj .forma {
+	display: inline-block;
+	width: 30%;
+	background-color: #fff;
+	margin-left: 50%;
+	transform: translate(-50%, 0);
+	text-align: center;
+}
