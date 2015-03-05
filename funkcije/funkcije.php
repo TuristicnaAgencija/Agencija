@@ -177,6 +177,21 @@ function dodajHotel($podatki) {
 		return false;	
 }
 
+function dodajPoslovalnica($podatki) {
+	$naziv = $podatki['naziv'];
+	$ulica = $podatki['ulica'];
+	$kraj = $podatki['kraj'];
+	$posta = $podatki['posta'];
+	$postnaStevilka = $podatki['postnaStevilka'];
+	$telefon = $podatki['telefon'];
+	$email = $podatki['email'];
+	$drzava = $podatki['drzava'];
+	$davcna = $podatki['davcna'];
+	
+	mysql_query("INSERT INTO poslovalnica (naziv, ulica, kraj, posta, postnaStevilka, telefon, email, drzava, davca
+		VALUES ('$naziv', '$ulica', '$kraj', '$posta', '$postnaStevilka', '$telefon', '$email', '$drzava', '$davcna')");
+}
+
 function stetjeUporabnikov() {
 	return (mysql_result(mysql_query("SELECT COUNT(uporabnikID FROM uporabnik WHERE acitve = 1"), 0));
 }
