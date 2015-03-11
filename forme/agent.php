@@ -28,7 +28,13 @@
 		<div class="form-group">
 			<label>Agencija</label>
 			<select name="agencija" class="form-field" required>
-				<option>Foreach</option>
+				<?php
+					$agencije = array();
+					$agencije = agencije();
+					foreach ($agencije as $k => $agencija) {
+						echo '<option value="'.$agencija["agencijaID"].'">'.$agencija["naziv"].'</option>';
+					}
+				?>
 			</select>
 		</div>
 		<div class="form-group">
@@ -59,15 +65,19 @@ if(isset($_POST['submit'])) {
 	}
 
 	if (!preg_match("#[0-9]+#", $_POST['geslo'])) {
-        $errors[] = 'Geslo mora vsebovati vsaj eno številko';
-    }
+        	$errors[] = 'Geslo mora vsebovati vsaj eno številko';
+	}
 
-    if (!preg_match("#[a-zA-Z]+#", $_POST['geslo'])) {
-        $errors[] = 'Geslo mora vsebovati vsaj eno črko';
-    }
+	if (!preg_match("#[a-zA-Z]+#", $_POST['geslo'])) {
+		$errors[] = 'Geslo mora vsebovati vsaj eno črko';
+    	}
 
 	if (!preg_match("#[0-9]+#", $_POST['telefon'])) {
-    	$errors[] = 'Vnešena telefonska številka ni veljavna';
+    		$errors[] = 'Vnešena telefonska številka mora vsebovati samo številke';
+	}
+	
+	if(strlen($_POST['telefon'])!=9) {
+		$errors[] = 'Vnešena telefonska ptevilka ni veljavna';
 	}
 
 	}
