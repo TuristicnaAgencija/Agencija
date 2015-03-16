@@ -251,6 +251,23 @@ function drzave() {
 	return $drzave;
 }
 
+function lastniki() {
+	$lastniki = array();
+	$query = mysql_query("SELECT lastnikID, ime, priimek FROM lastnik");
+	while($temp = mysql_fetch_assoc($query)) {
+		$lastniki[] = $temp;
+	}
+	return $lastniki;
+}
+
+function agencije() {
+	$agencije = array();
+	$query = mysql_query("SELECT agencijaID, naziv FROM agencija");
+	while($temp = mysql_fetch_assoc($query)) {
+		$agencije[] = $temp;
+	}
+	return $agencije;
+}
 
 function podatkiAgent($agentID) {
 	return mysql_fetch_assoc(mysql_query("SELECT * FROM agent WHERE agentID = '$agentID'"));

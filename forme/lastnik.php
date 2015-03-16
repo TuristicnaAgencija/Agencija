@@ -2,35 +2,39 @@
 	<form method="post">
 		<div class="form-group">
 			<label>Ime</label>
-			<input type="text" name="ime" class="form-field">
+			<input type="text" name="ime" class="form-field" required>
 		</div>
 		<div class="form-group">
 			<label>Priimek</label>
-			<input type="text" name="priimek" class="form-field">
+			<input type="text" name="priimek" class="form-field" required>
 		</div>
 		<div class="form-group">
 			<label>Kraj</label>
-			<input type="text" name="kraj" class="form-field">
+			<input type="text" name="kraj" class="form-field" required>
 		</div>
 		<div class="form-group">
 			<label>Ulica</label>
-			<input type="text" name="ulica" class="form-field">
+			<input type="text" name="ulica" class="form-field" required>
 		</div>
 		<div class="form-group">
 			<label>Pošta</label>
-			<input type="number" name="posta" class="form-field">
+			<input type="text" name="posta" class="form-field" required>
+		</div>
+		<div class="form-group">
+			<label>Poštna številka</label>
+			<input type="text" name="postnaStevilka" class="form-field" required>
 		</div>
 		<div class="form-group">
 			<label>Telefonska številka</label>
-			<input type="text" name="telefon" class="form-field">
+			<input type="text" name="telefon" class="form-field" required>
 		</div>
 		<div class="form-group">
 			<label>Internetni naslov</label>
-			<input type="text" name="url" class="form-field">
+			<input type="text" name="url" class="form-field" required>
 		</div>
 		<div class="form-group">
 			<label>Država</label>
-			<select name="drzavaID" class="form-field">
+			<select name="drzavaID" class="form-field" required>
 				<?php
 					$drzave = array();
 					$drzave = drzave();
@@ -52,6 +56,39 @@
 		$_POST['url'] && $_POST['drzavaID'])) {
 		$napake[] = 'Izpolnite vsa polja.';
 	}
+	
+	if(!preg_match("#[a-zA-Z]+#", $_POST['ime'])) {
+		$napake[] = 'Ime mora vsebovati samo črke';
+	}
+
+	if(!preg_match("#[a-zA-z]+#", $_POST['priimek'])) {
+		$napake[] = 'Priimek mora vsebovati samo črke';
+	}
+
+	if(!preg_match("#[a-zA-z]+#", $_POST['kraj'])) {
+		$napake[] = 'Kraj mora vsebovati samo črke';
+	}
+
+	if(!preg_match("#[a-zA-z]+#", $_POST['posta'])) {
+		$napake[] = 'Pošta mora vsebovati samo črke';
+	}
+
+	if(!preg_match("#[0-9]+#", $_POST['postnaStevilka'])) {
+		$napake[] = 'Poštna številka mora vsebovati samo številke';
+	}
+
+	if(!preg_match("#0-9]+#", $_POST['ulica'])) {
+		$napake[] = 'Manjka hišna številka';
+	}
+
+	if(strlen($_POST['postnaStevilka']!=4)) {
+		$napake[] = 'Pri poštni številki so dovoljene 4 številke';
+	}
+
+	if (strlen($_POST['telefon'])!=9) {
+		$napake[] = 'Vnešena telefonska številka ni veljavna';
+	}
+	
 	if(empty($napake)) {
 		$podatki = array();
 		$podatki['ime'] = $_POST['ime'];
@@ -59,6 +96,7 @@
 		$podatki['kraj'] = $_POST['kraj'];
 		$podatki['ulica'] = $_POST['ulica'];
 		$podatki['posta'] = $_POST['posta'];
+		$podatki['postnaStevilka'] = $_POST['postnaStevilka'];
 		$podatki['telefon'] = $_POST['telefon'];
 		$podatki['url'] = $_POST['url'];
 		$podatki['drzavaID'] = $_POST['drzavaID'];
