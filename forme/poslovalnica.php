@@ -69,7 +69,7 @@
 				$errors[] = 'Pri poštni številki so dovoljene le številke';
 			}
 			
-			if(streln($_POST['postnaStevilka']!=4)) {
+			if(strlen($_POST['postnaStevilka']!=4)) {
 				$errors[] = 'Pri poštni številki so dovoljene 4 številke';
 			}
 

@@ -67,8 +67,12 @@ function vsiHoteli(){
 	return $data;
 }
 
-function iskanjePoDnevih($hotelID) {
-	echo $hotelID;
+function iskanjePoSteviluPosteljInKvaliteti($hotelID, $postelje, $kvaliteta) {
+	$x = mysql_query("SELECT * FROM soba RIGHT JOIN hotel ON hotel.hotelID = soba.hotelID WHERE kvaliteta = '$kvaliteta' AND st_postelj = '$postelje' AND hotel.hotelID = '$hotelID'");
+	while($a = mysql_fetch_assoc($x)){
+		$data[] = $a;
+	}
+	return $data;
 }
 
 function iskanjePoSteviluPostelj($hotelID, $postelje){
@@ -85,10 +89,6 @@ function iskanjePoKvaliteti($hotelID, $kvaliteta) {
 		$data[] = $a;
 	}
 	return $data;
-}
-
-function iskanjePoDnevuInSteviluPostelj($hotelID) {
-
 }
 
 function minCena($hotelID) {

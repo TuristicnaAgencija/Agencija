@@ -48,13 +48,17 @@ else {
 		<h4>Odprte rezarvacije</h4>
 		<?php
 		print_r($rezervacije);
-
+		/*foreach ($rezervacije as $el){
+			echo '<div class="kvadratek">';
+		}
+*/
 		?>
 		<hr>
 		<h4>Zgodovina</h4>
 		<?php
 		print_r($rezervacijaZgodovina);
 		?>
+		}
 	</div>
 </div>
 <?php include 'includes/noga.php';?>

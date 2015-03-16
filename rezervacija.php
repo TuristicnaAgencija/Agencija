@@ -1,7 +1,7 @@
 <?php include 'includes/glava.php'; 
 zasciteno();
-if(isset($_GET['od']) && isset($_GET['do']) && isset($_GET['steviloPostelj']) &&!empty($_GET['od']) && !empty($_GET['do']) && !empty($_GET['steviloPostelj'])) {
-	$sobe = iskanjePoDnevuInSteviluPostelj($_SESSION['hotelID']);
+if(isset($_GET['steviloPostelj']) && !empty($_GET['steviloPostelj']) && isset($_GET['kvaliteta']) && !empty($_GET['kvaliteta'])){
+	$sobe = iskanjePoSteviluPosteljInKvaliteti($_SESSION['hotelID'], $_GET['steviloPostelj'], $_GET['kvaliteta']);
 }
 else if(isset($_GET['kvaliteta']) && !empty($_GET['kvaliteta'])) {
 	$sobe = iskanjePoKvaliteti($_SESSION['hotelID'], $_GET['kvaliteta']);
@@ -9,10 +9,7 @@ else if(isset($_GET['kvaliteta']) && !empty($_GET['kvaliteta'])) {
 else if(isset($_GET['steviloPostelj']) && !empty($_GET['steviloPostelj'])) {
 	$sobe = iskanjePoSteviluPostelj($_SESSION['hotelID'], $_GET['steviloPostelj']);
 }
-else if(isset($_GET['od']) && isset($_GET['do']) && !empty($_GET['od']) && !empty($_GET['do'])) {
-	$sobe = iskanjePoDnevih($_SESSION['hotelID']);
-	echo 'VSE';
-}
+
 else {
 
 if(isset($_GET['hotelID'])) {
@@ -67,14 +64,6 @@ $data = podatkiUporabnik($session_uporabnikID);
 			<option value="4">4</option>
 			<option value="5">5</option>
 		</select>
-		</div>
-		<div class="form-group">
-		<label>Od</label>
-		<input type="date" name="od" class="form-field">
-		</div>
-		<div class="form-group">
-		<label>Do</label>
-		<input type="date" name="do" class="form-field">
 		</div>
 		<input type="submit" value="Išči">
 		<input type="button" name="cancel" value="Reset" onclick="location.href='rezervacija.php?hotelID=<?php echo $_SESSION['hotelID']; ?>'">

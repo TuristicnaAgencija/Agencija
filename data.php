@@ -161,7 +161,7 @@ foreach(range(1, 10) as $x) {
 */
 
 /*DODAJANJE REZERVACIJ*/
-
+/*
 $db -> query("DELETE FROM rezervacija1 WHERE rezervacijaID > 10");
 
 foreach(range(1, 1000) as $x) {
@@ -177,4 +177,27 @@ foreach(range(1, 1000) as $x) {
 		INSERT INTO rezervacija1 (uporabnikID, sobaID, od, do, cena)
 		VALUES ('{$faker->numberBetween(1, 250)}', '{$faker->numberBetween(1, 10000)}', '$od', '$do', '{$faker->numberBetween(100, 10000)}')
 		");
+}
+*/
+/*DODAJANJE hotelID REZERVACIJAM*/
+/*
+foreach(range(1, 2) as $x) {
+
+	$result = $db -> query("SELECT soba.hotelID FROM hotel LEFT JOIN rezervacija1 ON rezervacija.sobaID = soba.sobaID WHERE rezervacijaID = '$x'");
+}
+*/
+/*DODAJANJE ZASEDENOSTI SOB*/
+
+$db -> query("DELETE FROM zasedenost");
+foreach(range(1, 100) as $x) {
+
+	$dan =  $faker->dateTimeThisDecade('now');
+	$dan = (array) $dan;
+	$odstr = strtotime($dan['date']);
+	$od = date("Y-m-d", $odstr);
+	$dostr = $odstr + rand(1, 31)*60*60*24;
+	$do =  date("Y-m-d", $dostr);
+
+	$db -> query("INSERT INTO zasedenost(sobaID, od, do) 
+			VALUES ('{$faker->numberBetween(3267, 13267)}', '$od', '$do')");
 }
