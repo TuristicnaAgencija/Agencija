@@ -1,8 +1,12 @@
 <!--Cigale-->
 <?php include 'includes/glava.php'; 
-if(isset($_GET['agencijaID'])) {
+if(isset($_GET['agencijaID']) && !empty($_GET['agencijaID'])) {
 	$data = podatkiAgencija($_GET['agencijaID']);
 	$agentje = podatkiAgentje($_GET['agencijaID']);
+	if(empty($data)) {
+		echo '<h1>Napaka, prosimo vrnite se na prejšnjo stran</h1>';
+		die();
+}
 }
 else {
 	echo '<h1>Napaka, prosimo vrnite se na prejšnjo stran</h1>';

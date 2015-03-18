@@ -187,7 +187,7 @@ foreach(range(1, 2) as $x) {
 }
 */
 /*DODAJANJE ZASEDENOSTI SOB*/
-
+/*
 $db -> query("DELETE FROM zasedenost");
 foreach(range(1, 100) as $x) {
 
@@ -201,3 +201,49 @@ foreach(range(1, 100) as $x) {
 	$db -> query("INSERT INTO zasedenost(sobaID, od, do) 
 			VALUES ('{$faker->numberBetween(3267, 13267)}', '$od', '$do')");
 }
+*/
+
+/*DODAJANJE POSLOVALNIC*/
+/*
+$db -> query("DELETE FROM poslovalnica");
+
+foreach(range(1, 10) as $el) {
+
+	$db -> query ("INSERT INTO poslovalnica (naziv, kraj, ulica, posta, postnaStevilka, drzavaID, telefon, url, email)
+			VALUES ('{$faker->company}', '{$faker->city}', '{$faker->streetName}', '{$faker->state}', '{$faker->postCode}', 
+				'{$faker->numberBetween(1,250)}', '{$faker->phoneNumber()}', '{$faker->domainName}', '{$faker->companyEmail}')");
+
+}
+*/
+
+/*ZAPIS DRŽAVE NAMESTO DRŽAVAID*/
+/*
+$x = $db -> query("SELECT * FROM agencija");
+while($a = $x -> fetch(PDO::FETCH_ASSOC)) {
+	$data[] = $a;
+}
+$stevec = 113;
+foreach($data as $el) {
+	$drzavaID = $el['drzava'];
+	$drzava = $db -> query("SELECT naziv FROM drzava WHERE drzavaID = '$drzavaID'");
+	$drzava = $drzava -> fetch(PDO::FETCH_ASSOC);
+	$drzava = $drzava['naziv'];
+	$db -> query("UPDATE agencija SET drzava = '$drzava' WHERE agencijaID = '$stevec'");
+	$stevec++;
+}
+*/
+/*
+$x = $db -> query("SELECT * FROM agent");
+while($a = $x -> fetch(PDO::FETCH_ASSOC)) {
+	$data[] = $a;
+}
+$stevec = 20;
+foreach($data as $el) {
+	$drzavaID = $el['drzava'];
+	$drzava = $db -> query("SELECT naziv FROM drzava WHERE drzavaID = '$drzavaID'");
+	$drzava = $drzava -> fetch(PDO::FETCH_ASSOC);
+	$drzava = $drzava['naziv'];
+	$db -> query("UPDATE agent SET drzava = '$drzava' WHERE agentID = '$stevec'");
+	$stevec++;
+}
+*/

@@ -5,22 +5,10 @@
 			<a href="index.php">Domov</a>
 		</li>
 		<li>
-			<a href="">Link 1</a>
+			<a href="agencije.php">Agencije</a>
 		</li>
 		<li>
-			<a href="">Link 2</a>
-		</li>
-		<li>
-			<a href="">Link 3</a>
-		</li>
-		<li>
-			<a href="">Link 4</a>
-		</li>
-		<li>
-			<a href="">Link 5</a>
-		</li>
-		<li>
-			<a href="">Link 6</a>
+			<a href="poslovalnice.php">Poslovalnice</a>
 		</li>
 		<li>
 		<form action="hotel.php" method="GET" class="iskanje" autocomplete="off">

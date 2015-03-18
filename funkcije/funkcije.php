@@ -1,4 +1,17 @@
 <?php
+/*function isAdmin(){
+	return(mysql_result(mysql_query("SELECT COUNT(adminID) FROM admin WHERE email "), row))
+}
+*/
+
+function agencije1() {
+	$x = mysql_query("SELECT * FROM agencija");
+	while($a = mysql_fetch_assoc($x)){
+		$data[] = $a;
+	}
+	return $data;
+}
+
 function rezervacijeUporabnikZgodovina($uporabnikID) {
 	$date = date("Y-m-d");
 	$x = mysql_query("SELECT rezervacija.cena, rezervacija.od, rezervacija.do, hotel.naziv, soba.stevilka, hotel.slika FROM rezervacija LEFT JOIN hotel ON rezervacija.hotelID = hotel.hotelID RIGHT JOIN soba ON soba.sobaID = rezervacija.sobaID WHERE rezervacija.uporabnikID = '$uporabnikID' AND rezervacija.od < '$date'");
@@ -10,7 +23,7 @@ function rezervacijeUporabnikZgodovina($uporabnikID) {
 
 function rezervacijeUporabnik($uporabnikID) {
 	$date = date("Y-m-d");
-	$x = mysql_query("SELECT rezervacija.cena, rezervacija.od, rezervacija.do, hotel.naziv, soba.stevilka, hotel.slika FROM rezervacija LEFT JOIN hotel ON rezervacija.hotelID = hotel.hotelID RIGHT JOIN soba ON soba.sobaID = rezervacija.sobaID WHERE rezervacija.uporabnikID = '$uporabnikID' AND rezervacija.od > '$date'");
+	$x = mysql_query("SELECT rezervacija.cena, rezervacija.od, rezervacija.do, hotel.naziv, soba.stevilka, hotel.slika FROM rezervacija LEFT JOIN hotel ON rezervacija.hotelID = hotel.hotelID RIGHT JOIN soba ON soba.sobaID = rezervacija.sobaID WHERE rezervacija.uporabnikID = '$uporabnikID' AND rezervacija.od >= '$date'");
 	while($a = mysql_fetch_assoc($x)){
 		$data[] = $a;
 	}
@@ -262,7 +275,7 @@ function lastniki() {
 
 function agencije() {
 	$agencije = array();
-	$query = mysql_query("SELECT agencijaID, naziv FROM agencija");
+	$query = mysql_query("SELECT * FROM agencija");
 	while($temp = mysql_fetch_assoc($query)) {
 		$agencije[] = $temp;
 	}

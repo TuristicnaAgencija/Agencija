@@ -502,3 +502,23 @@ input[type="submit"]:hover {
 	transform: translate(-50%, 0);
 	text-align: center;
 }
+
+.agencije {
+	text-align: center;
+}
+
+.agencije .agencija {
+	display: inline-block;
+	height: 260px;
+	width: 400px;
+	border: solid black;
+	line-height: 1.4em;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.agencije .agencija img {
+	height: 120px;
+	width: 280px;
+	margin-top: 10px;
+}
